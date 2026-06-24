@@ -1,0 +1,24 @@
+// Added code so the button can keep observers and notify them when pressed
+
+
+import java.util.ArrayList;
+
+public class Button {
+
+    private ArrayList<LightObserver> observers = new ArrayList<>();
+
+    public void addObserver(LightObserver o){
+        observers.add(o);
+    }
+
+    private void notifyObservers(){
+        for(LightObserver o : observers){
+            o.update();
+        }
+    }
+
+    public void press() {
+        System.out.println("Button pressed!");
+        notifyObservers();
+    }
+}
