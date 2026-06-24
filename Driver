@@ -1,0 +1,26 @@
+// Button and Lights using Observer pattern
+
+public class Driver {
+    
+    public static void main(){
+
+        // create a button
+        Button b = new Button();
+
+        // create a red light
+        Light red = new Light("Red");
+
+        // create a green light
+        Light green = new Light("Green");
+
+        // create a blue light
+        Light blue = new Light("Blue");
+
+        // have the blue light and the red light listen for the button
+        b.addObserver(red);
+        b.addObserver(blue);
+
+        // press the button. Blue and red light should call turnOn in response
+        b.press();
+    }
+}
